@@ -1,19 +1,24 @@
 import React from 'react';
 import '../App.css';
+import CardList from '../components/CardList';
+import Footer from '../components/Footer';
+import Nav from '../components/Nav';
 
 function App() {
   return (
     <>
+  <div className='app'>
     <div className='nav'>
-      <h1 className='logo'>Title/NAV</h1>
+      <Nav/>
      </div>
     <div className='main'>
      <p>CardList</p>
-     <p>CardList</p>
+     <CardList/>
     </div>
     <footer className='footer'>
-      <p className='footer-text'>NNNNNNNNNNNNNNNNNNNNNNNNNNN</p>
+      <Footer/>
     </footer>
+  </div>
     </>
   )
 }

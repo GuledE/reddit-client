@@ -1,25 +1,56 @@
-:root {
+html {
+  background-color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.app {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  height: 100vh;
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 16px);
 }
 
 .nav {
-  background-color: red;
-  height: 57px;
+  background-color: white;
+  border: 2px red solid;
   width: 100%;
   margin-top: 0%;
+  height: 100px;
 }
 
-.main {
-  background-color: yellow;
+.title {
+  color: red;
+  font-size: 30px;
+  border: 1px green solid;
   width: 100%;
+  text-align: center;
+  }
+
+.main {
+  background-color: white;
+  border: 2px blue solid;
+  width: 100%;
+  flex-grow: 1;
 
 }
 
 .footer {
   background-color: white;
-  margin-bottom: 0%;
+  border: 2px purple solid;
+  width: 100%;
+  height: 50px;
+}
+
+.footer-text {
+  font-size: 25px;
+  width: 100%;
+  text-align: right;
+  height: 100%;
+  border: 1px yellow solid;
+}
+
+.footer-text p {
+  margin-right: 20px;
+  bottom: 10px;
 }
