@@ -3,6 +3,6 @@ import cardListSlice from '../components/cardListSlice';
 
 export const store = configureStore({
   reducer: {
-  cardList: cardListSlice
+  posts: cardListSlice
   },
 });

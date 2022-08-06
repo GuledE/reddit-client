@@ -1,7 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import getPosts from '../api/api';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+const baseURL = 'https://jsonplaceholder.typicode.com';
+
+export const fetchPosts = createAsyncThunk('cardListSlice/fetchPosts', async () => {
+  try {
+    const posts = await fetch(`${baseURL}/posts`);
+    const postsJson = await posts.json();
+    return postsJson
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 const initialState = {
 posts: [],
@@ -12,15 +21,16 @@ isloading: true
 const cardListSlice = createSlice({
   name: "cardListSlice",
   initialState,
-  reducers: (builder) => {
-    builder.addCase(getPosts.pending, (state) => {
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchPosts.pending, (state) => {
         state.isloading = true;
         state.error = false;
     });
-    builder.addCase(getPosts.fulfilled, (state, actions) => {
-        state.posts = actions.payload
+    builder.addCase(fetchPosts.fulfilled, (state, action) => {
+        state.posts = action.payload
     });
-    builder.addCase(getPosts.rejected, (state) => {
+    builder.addCase(fetchPosts.rejected, (state) => {
     state.isloading = false;
     state.error = true
     });
@@ -28,8 +38,9 @@ const cardListSlice = createSlice({
   }
 });
 
+
 // export const { getPosts }  = cardListSlice.actions
 
 export default cardListSlice.reducer
 
-export const selectedPosts = (state) => state.posts
+export const selectPosts = (state) => state.posts.posts

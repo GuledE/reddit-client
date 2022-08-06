@@ -1,9 +1,8 @@
-const baseURL = 'https://www.reddit.com';
+// const baseURL = 'https://jsonplaceholder.typicode.com';
 
-const getPosts = async () => {
-const posts = await fetch(`${baseURL}/subbredit.json`);
-const postsJson = await posts.json();
-return postsJson.data.children.map((post) => post.data);
- }; 
-
- export default getPosts
+// const getPosts = async () => {
+// const posts = await fetch(`${baseURL}/posts`);
+// const postsJson = await posts.json();
+// return postsJson.map((post) => post);
+//  };
+//  export default getPosts

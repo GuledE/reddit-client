@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import getPosts from '../api/api';
-import { selectedPosts } from './cardListSlice'
+import { fetchPosts, selectPosts } from './cardListSlice'
 
 function CardList() {
    const dispatch = useDispatch()
-   const posts = useSelector(selectedPosts);
+   const posts = useSelector(selectPosts);
+   
+   useEffect(() => {
+    dispatch(fetchPosts())
+   },[dispatch])
+   
   return (
-    <div>{posts}</div>
+    <div>{posts.map(post => {
+     return <ul>
+        <li key={post.id}>{post.title}</li>
+      </ul>
+    })}</div>
   )
 }
 
