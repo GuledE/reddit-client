@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Cards from './Card'
 import { fetchPosts, selectPosts } from './cardListSlice'
 
 function CardList() {
@@ -9,12 +10,10 @@ function CardList() {
    useEffect(() => {
     dispatch(fetchPosts())
    },[dispatch])
-   
+
   return (
     <div>{posts.map(post => {
-     return <ul>
-        <li key={post.id}>{post.title}</li>
-      </ul>
+     return <Cards post={post} key={post.id}/>
     })}</div>
   )
 }

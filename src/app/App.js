@@ -12,7 +12,6 @@ function App() {
       <Nav/>
      </div>
     <div className='main'>
-     <p>CardList</p>
      <CardList/>
     </div>
     <footer className='footer'>
